@@ -7,7 +7,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-local venyx = library.new("Wrldhub autobadge 1.1", 5013109572)
+local venyx = library.new("Wrldhub autobadge 1.2", 5013109572)
 
 -- themes
 local themes = {
@@ -192,11 +192,25 @@ section111:addToggle("Hop on court 1", nil, function(value)
     if value then 
     game.StarterGui:SetCore("SendNotification", {
         Title = "Autobadge"; -- the title (ofc)
-        Text = "Coming soon"; -- what the text says (ofc)
+        Text = "Started hopping on"; -- what the text says (ofc)
+        Icon = "rbxassetid://8864247067"; -- the image if u want. 
+        Duration = 5; -- how long the notification should in secounds
+    })
+else
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Autobadge"; -- the title (ofc)
+        Text = "stopped hopping on"; -- what the text says (ofc)
         Icon = "rbxassetid://8864247067"; -- the image if u want. 
         Duration = 5; -- how long the notification should in secounds
     })
 end
+
+light = value
+while light do
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-566.704773, 8.44813538, 176.96727, 0.998905659, 6.24382821e-08, 0.0467708334, -6.20763103e-08, 1, -9.19173537e-09, -0.0467708334, 6.2783152e-09, 0.998905659)
+wait(0.1)
+game:GetService("ReplicatedStorage").Remotes.Courts:InvokeServer("Join", "6")
+wait(3)
 end)
 
 section111:addToggle("Auto go out", nil, function(value)
