@@ -210,7 +210,7 @@ while light do
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-566.704773, 8.44813538, 176.96727, 0.998905659, 6.24382821e-08, 0.0467708334, -6.20763103e-08, 1, -9.19173537e-09, -0.0467708334, 6.2783152e-09, 0.998905659)
 wait(0.1)
 game:GetService("ReplicatedStorage").Remotes.Courts:InvokeServer("Join", "6")
-wait(3)
+wait(60)
 end
 end)
 
@@ -269,6 +269,7 @@ end)
 
 local page = venyx:addPage("Teleports", 5012544693)
 local section111 = page:addSection("Courts")
+local section1112 = page:addSection("Other")
 
 section111:addButton("Teleport to court 1", function()
     local CFrameEnd = CFrame.new(-542.674683, 5.44813299, 84.734848, -0.840623379, 4.71768153e-08, 0.541620076, 2.64193929e-08, 1, -4.60988332e-08, -0.541620076, -2.44424871e-08, -0.840623379) -- Place your coords in here
@@ -289,6 +290,23 @@ local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.C
 tween:Play()
 tween.Completed:Wait()
 end)
+
+section1112:addButton("Plaza", function()
+    local args = {
+        [1]="Plaza"
+    }
+    
+    game:GetService("ReplicatedStorage").Remotes.Teleport:invokeServer(unpack(args))
+end)
+
+section1112:addButton("Park", function()
+    local args = {
+        [1]="Plaza"
+    }
+    
+    game:GetService("ReplicatedStorage").Remotes.Teleport:invokeServer(unpack(args))
+end)
+
 
 
 local page = venyx:addPage("Misc", 5012544693)
